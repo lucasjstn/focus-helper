@@ -25,7 +25,10 @@ global CoreAllowList := Map(
     "Microsoft To Do", true,
     "FocusToDo.exe", true,
     "anki.exe", true,
-    "pyw.exe", true
+    "pyw.exe", true,
+    "Listary.exe", true,
+    "pythonw.exe", true,
+    "Notepad.exe", true
 )
 global AllowProcessMap := Map()
 global AllowTitleList := []

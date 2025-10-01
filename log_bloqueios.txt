@@ -1,2 +1,6 @@
 ﻿2025-10-01 19:18:06 - Bloqueado: pythonw.exe
 2025-10-01 19:22:06 - Bloqueado: pythonw.exe
+2025-10-01 20:10:56 - Bloqueado: Ahk2Exe.exe
+2025-10-01 20:10:56 - Bloqueado: Notepad.exe
+2025-10-01 20:10:57 - Bloqueado: pythonw.exe
+2025-10-01 20:11:25 - Bloqueado: Listary.exe
