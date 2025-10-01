@@ -1,7 +1,5 @@
 #Requires AutoHotkey v2.0
 
-#Requires AutoHotkey v2.0
-
 EnsureAllowListFile() {
     global AllowListFile
     if FileExist(AllowListFile)
@@ -45,6 +43,11 @@ InitAllowList() {
         AllowProcessMap[exe] := true
     for title in extras.titles
         AllowTitleList.Push(title)
+
+    ; --- LINHA ADICIONADA AQUI ---
+    ; Sempre que a lista de permissões é (re)carregada na memória,
+    ; esta linha chama a função para atualizar a exibição na tela.
+    UpdateAllowlistDisplay()
 }
 
 BlockProcess(pid, exe) {
@@ -138,4 +141,32 @@ EnforceWindowRestrictions() {
                 BlockProcess(pid, exe)
         }
     }
+}
+
+AddToAllowlistHandler(*) {
+    global myGui, AllowListFile
+
+    processName := Trim(myGui["AllowEdit"].Value)
+
+    if (processName = "") {
+        ToolTip("Por favor, digite o nome de um processo.")
+        SetTimer(() => ToolTip(), -1500)
+        return
+    }
+
+    ; --- BLOCO CORRIGIDO ---
+    ; Verificamos os últimos 4 caracteres da string em vez de usar o método .EndsWith que não existe.
+    if (StrLen(processName) < 4 or StrLower(SubStr(processName, -3)) != ".exe") {
+        processName .= ".exe"
+    }
+
+    EnsureAllowListFile()
+
+    FileAppend(processName "`n", AllowListFile, "UTF-8")
+
+    InitAllowList()
+
+    myGui["AllowEdit"].Value := ""
+    ToolTip(processName " adicionado à allowlist!")
+    SetTimer(() => ToolTip(), -2000)
 }

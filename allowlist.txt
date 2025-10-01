@@ -1,4 +1,2 @@
 # Adicione uma linha por aplicativo permitido (ex.: obsidian.exe)
 # Linhas iniciadas com # sao ignoradas.
-brave
-Microsoft To Do
