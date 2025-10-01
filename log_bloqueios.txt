@@ -1,0 +1,2 @@
+﻿2025-10-01 19:18:06 - Bloqueado: pythonw.exe
+2025-10-01 19:22:06 - Bloqueado: pythonw.exe
