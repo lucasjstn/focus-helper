@@ -38,8 +38,8 @@ global windowPollMs := 300
 ; ---------- GUI ----------
 myGui := Gui("+ToolWindow")
 myGui.Title := "Pomodoro - Bloqueio"
-btn := myGui.AddButton("w240 h42 vBtn", "Ativar (00:30)")
-lbl := myGui.AddText("w240 Center vLbl", "00:30")
+btn := myGui.AddButton("w240 h42 vBtn", "Ativar (25:00)")
+lbl := myGui.AddText("w240 Center vLbl", "25:00")
 btn.OnEvent("Click", StartSession)
 
 ; Bloqueio de fechar a janela
