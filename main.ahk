@@ -26,6 +26,7 @@ global CoreAllowList := Map(
     "PowerToys.WorkspacesEditor.exe", true,
     "Microsoft To Do", true,
     "FocusToDo.exe", true,
+    "anki.exe", true,
 )
 global AllowProcessMap := Map()
 global AllowTitleList := []
