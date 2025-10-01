@@ -19,7 +19,7 @@ StartSession(*) {
 }
 
 FinishSession() {
-    global PomodoroOn, btn, lbl
+    global PomodoroOn, btn, lbl, myGui ; <--- Adicionada a variável 'myGui'
     PomodoroOn := false
     SetTimer(UpdateTimer, 0)
     SetTimer(WatchNewProcesses, 0)
@@ -27,12 +27,13 @@ FinishSession() {
     lbl.Text := "25:00"
     btn.Enabled := true
     btn.Text := "Ativar (25:00)"
+    myGui.Title := "Pomodoro - Bloqueio" ; <--- Linha nova para restaurar o título
     ToolTip("Sessao concluida!")
     SetTimer(() => ToolTip(), -1200)
 }
 
 UpdateTimer() {
-    global PomodoroOn, endTick, lbl
+    global PomodoroOn, endTick, lbl, myGui ; <--- Adicionada a variável 'myGui'
     if !PomodoroOn
         return
     rem := endTick - A_TickCount
@@ -43,5 +44,9 @@ UpdateTimer() {
     secsTotal := rem // 1000
     mins := Floor(secsTotal / 60)
     secs := Mod(secsTotal, 60)
-    lbl.Text := Format("{:02}:{:02}", mins, secs)
+    
+    formattedTime := Format("{:02}:{:02}", mins, secs)
+    
+    lbl.Text := formattedTime
+    myGui.Title := "Pomodoro - " formattedTime ; <--- Linha nova para atualizar o título
 }

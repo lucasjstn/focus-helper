@@ -12,6 +12,8 @@
 myGui := Gui("+ToolWindow")
 myGui.Title := "Pomodoro - Bloqueio"
 btn := myGui.AddButton("w240 h42 vBtn", "Ativar (25:00)")
+btn.OnEvent("Click", StartSession)
+
 lbl := myGui.AddText("w240 Center vLbl", "25:00")
 
 myGui.AddText("w240 Center", "Adicionar processo à allowlist:")
