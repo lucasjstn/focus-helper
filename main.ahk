@@ -63,7 +63,7 @@ StartSession(*) {
         return
     InitAllowList()
     PomodoroOn := true
-    endTick := A_TickCount + (30 * 1000)
+    endTick := A_TickCount + (25 * 60 * 1000)
     btn.Enabled := false
     btn.Text := "Pomodoro em andamento."
     UpdateTaskbarRect()
@@ -81,9 +81,9 @@ FinishSession() {
     SetTimer(UpdateTimer, 0)
     SetTimer(WatchNewProcesses, 0)
     SetTimer(EnforceWindowRestrictions, 0)
-    lbl.Text := "00:30"
+    lbl.Text := "25:00"
     btn.Enabled := true
-    btn.Text := "Ativar (00:30)"
+    btn.Text := "Ativar (25:00)"
     ToolTip("Sessao concluida!")
     SetTimer(() => ToolTip(), -1200)
 }
